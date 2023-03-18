@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/css/output.css" rel="stylesheet">
+    <title>doctor availability</title>
+</head>
+<div>
+ <nav class="bg-gr h-24 shadow-lg shadow-slate-400 rounded-2xl">
+        <div class="flex justify-center font-bold pt-4">
+            <button class="pr-6 text-slate-400  hover:bg-gray-200 rounded-xl m-1 p-2"><a href="#"></a>HOME</button>
+            <button class="pr-6 text-slate-400 hover:bg-gray-200 rounded-xl m-2 p-2"><a href="#quickie">QUICKIE</a></button>
+            <button class="pr-6 text-slate-400 hover:bg-gray-200 rounded-xl m-2 p-2"><a href="#divisions">DIVISIONS</a></button>
+            <button class="pr-6 text-slate-400 hover:bg-gray-200 rounded-xl m-2 p-2"><a href="#venting">VENTING</a></button>
+            <button class="pr-6 text-slate-400 hover:bg-gray-200 rounded-xl m-2 p-2"><a href="#your_problem">YOUR PROBLEM</a></button>
+            <button class="pr-6 text-slate-400 hover:bg-gray-200 rounded-xl m-2 p-2"><a href="#outsourcing">OUTSOURCING</a></button>
+            <button class="pr-6 text-slate-400 hover:bg-gray-200 rounded-xl m-2 p-2"><a href="#overview">OVERVIEW</a></button>
+            <button class="pr-6 text-slate-400 hover:bg-gray-200 rounded-xl m-2 p-2"><a href="#warm_up">WARMUP</a></button>
+            <button class="pr-6 text-slate-400 hover:bg-gray-200 rounded-xl m-2 p-2"><a href="{{url_for('login')}}">LOGIN</a></button>
+        </div>
+    </nav>
+<div class="flex justify-center">
+<div class="flex flex-wrap m-10">
+  <div class="w-full sm:w-6/12 md:w-4/12 px-4">
+    <div class="relative inline-flex align-middle w-full">
+      <button class="text-black font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 bg-white ease-linear transition-all duration-150" type="button" onclick="openDropdown(event,'dropdown-id')">
+        White Dropdown
+      </button>
+      <div class="hidden bg-white  text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mb-1" style="min-width:12rem" id="dropdown-id">
+        <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700">
+          ANDHRA PRADESH
+        </a>
+        <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700">
+          ARUNACHAL PRADESH
+        </a>
+        <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700">
+          TAMIL NADU
+        </a>
+        <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700">
+          KERALA
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+ <form class="mt-10">
+    <div class="relative w-96">
+        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+            <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        </div>
+        <input type="search" id="default-search" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search Mockups, Logos..." required>
+        <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+    </div>
+</form>
+</div>
+<script src="https://unpkg.com/@popperjs/core@2.9.1/dist/umd/popper.min.js" charset="utf-8"></script>
+<script>
+  function openDropdown(event,dropdownID){
+    let element = event.target;
+    while(element.nodeName !== "BUTTON"){
+      element = element.parentNode;
+    }
+    var popper = Popper.createPopper(element, document.getElementById(dropdownID), {
+      placement: 'bottom'
+    });
+    document.getElementById(dropdownID).classList.toggle("hidden");
+    document.getElementById(dropdownID).classList.toggle("block");
+  }
+</script>
+
+
+</body>

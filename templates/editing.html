@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit's Forum</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        function add_outsourcing_medical_services(){
+            var image_link = $('#image_link_for_outsourcing_medical_service').val();
+            var link_oms = $('#link_for_oms').val();
+            var outsourcing_type = $('#type_of_outsourcing').val();
+            $.ajax({
+                url: '/add_oms',
+                data: {image_link:image_link,link_oms:link_oms,outsourcing_type:outsourcing_type},
+                type: 'POST'
+            })
+        }
+
+
+        // For ASMR VIDEO LINKS
+        function add_asmr_link(){
+            var asmr_links = $('#asmr_links').val();
+            $.ajax({
+                url: '/add_asmr',
+                data: {asmr_links:asmr_links},
+                type: 'POST'
+            })
+        }
+    </script>
+
+</head>
+<body>
+    
+    
+    <label >Outsourcing Medical Services</label>
+    <form method="post">
+        Image Link<input id="image_link_for_outsourcing_medical_service" type="text" name="image" required> <br>
+        Link <input type="text" id="link_for_oms" name="link_oms" required> <br>
+        Type of Outsourcing<input type="text" id="type_of_outsourcing" name="type" required> <br>
+        <button onclick="add_outsourcing_medical_services()">Add Image</button> <hr>
+    </form>
+
+    <label>ASMR</label>
+    <form method="post">
+        Video Link<input id="asmr_links" type="text" name="link_asmr" required> <br>
+        <button onclick="add_asmr_link()">Add Video Link</button> <hr>
+    </form>
+
+</body>
+</html>

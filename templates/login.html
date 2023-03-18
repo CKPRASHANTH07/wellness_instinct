@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./../static/css/output.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body class="h-screen w-screen bg-no-repeat bg-cover flex justify-center" style="background-image : url('https://drive.google.com/uc?id=1_5hb3OW2oV2laEuuC0LcDkNTc3jq_DNO')">
+          <div class="h-auto w-max mt-56 mb-64 shadow-lg rounded-2xl backdrop-brightness-75 bg-gray-400 backdrop-blur-xl p-28">
+            <h1 class="text-5xl font-semibold mb-14 text-white  text-center tracking-widest"> login </h1>
+            <form method="post">  
+            <div class="mt-4">
+                <label class="block text-xl text-white font-bold mb-2">Email Address</label>
+                  <input name="username" class="bg-gray-200 text-gray-700 focus:outline-none focus:border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="text" name="email">
+              </div>
+              <div class="mt-4">
+                  <div class="flex justify-between">
+                      <label class="block text-xl text-white font-bold mb-2">Password</label>
+                      
+                  </div>{{msg}}
+                  <input name="password" class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="password" name="password">
+                  <a href="#" class="text-xs text-gray-500">Forget Password?</a>
+              </div>
+              <div class="mt-8">
+                  <button class="bg-gray-700 font-body tracking-widest text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-600">let me in</button>
+              </div>
+              <div class="mt-4 flex items-center justify-between">
+                  <span class="border-b w-1/5 md:w-1/4"></span>
+                  <a href="{{url_for('signup')}}" class="text-xs text-gray-500 uppercase">or sign up</a>
+                  <span class="border-b w-1/5 md:w-1/4"></span>
+              </div>
+          </div>
+        </form>>
+</body>
+</html>

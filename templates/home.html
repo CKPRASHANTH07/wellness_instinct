@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./../static/css/output.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3aafa2d65b.js" crossorigin="anonymous"></script>
+    <title>Home</title>
+</head>
+<body class="h-screen w-screen bg-gr">
+ <div class="bg-no-repeat bg-cover h-max" style="background-image : url('./braineic (1).gif')">
+  <nav class="bg-transparent h-24 rounded-2xl">
+        <div class="flex justify-center font-bold pt-4">
+            <button class="pr-6 text-slate-400  hover:bg-gray-200 rounded-xl m-1 p-2"><a href="#"></a>HOME</button>
+            <button class="pr-6 text-slate-400 hover:bg-gray-200 rounded-xl m-2 p-2"><a href="#quickie">QUICKIE</a></button>
+            <button class="pr-6 text-slate-400 hover:bg-gray-200 rounded-xl m-2 p-2"><a href="#divisions">DIVISIONS</a></button>
+            <button class="pr-6 text-slate-400 hover:bg-gray-200 rounded-xl m-2 p-2"><a href="{{url_for('venting')}}">VENTING</a></button>
+            <button class="pr-6 text-slate-400 hover:bg-gray-200 rounded-xl m-2 p-2"><a href="#your_problem">YOUR PROBLEM</a></button>
+            <button class="pr-6 text-slate-400 hover:bg-gray-200 rounded-xl m-2 p-2"><a href="#outsourcing">OUTSOURCING</a></button>
+            <button class="pr-6 text-slate-400 hover:bg-gray-200 rounded-xl m-2 p-2"><a href="#overview">OVERVIEW</a></button>
+            <button class="pr-6 text-slate-400 hover:bg-gray-200 rounded-xl m-2 p-2"><a href="#warm_up">WARMUP</a></button>
+            <button class="pr-6 text-slate-400 hover:bg-gray-200 rounded-xl m-2 p-2"><a href="{{url_for('login')}}">LOGIN</a></button>
+        </div>
+    </nav>
+     <div class="h-20 font-extrabold w-auto absolute mt-56 ml-96 p-5 flex justify-center backdrop-blur-md backdrop-brightness-95 bg-white/30"><p class="text-slate-400 text-2xl animate-pulse font-div">mental well being a place to find solutions for your mental queries</p></div>
+   <div class="h-ext w-96 bg-gr ml-20 bg-transparent">
+
+  </div>
+</div>
+ <h1 class="text-5xl font-bold text-slate-400 text-center mt-7 mb-10">Our Features</h1>
+     <div class="h-auto w-auto relative bg-slate-900 text-slate-400 p-8 flex justify-start"><div class="flex "><img class="h-96 w-auto rounded-3xl" src="https://drive.google.com/uc?id=1w0pPn5Muayi9B8Zi6a46oXhdc-erhYqD"><div class=""><p class="ml-10 font-div font-semibold text-3xl">Depression Detection<br></p>
+         <p class="text-xl font-div ml-10 mt-7 ">find your depression level within 3 minjutes of quiz</p></div></div></div>
+ <div class="h-auto w-auto relative bg-slate-900 text-slate-400 p-8 pt-20 flex justify-end"><div class="flex">
+         <div><p class="mr-52 font-div font-semibold text-3xl">Venting<br></p><p class="text-xl font-div mr-10 mt-7 ">find your depression level within 3 minjutes of quiz</p></div></div><img class="h-96 w-auto rounded-3xl" src="https://drive.google.com/uc?id=1aXhr9FY-nS-Ku8SkyKm9S4V7pJ4Hquxg"></div></div>
+     <div class="h-auto w-auto relative bg-slate-900 text-slate-400 p-8 pt-20 flex justify-start"><div class=" flex"><img class="h-96 w-auto rounded-3xl" src="https://drive.google.com/uc?id=1LbhofOz1S2js1xMFE8UCvXf0jeFXka0E"><p class="text-center ml-36 font-div font-semibold text-3xl">Doctor appointment booking</p></div></div>
+     <div class="h-auto w-auto relative bg-slate-900 text-slate-400 p-8 pt-20 flex justify-end"><div class=" flex"><p class="mr-52 font-div font-semibold text-3xl">Symptoms checker</p><img class="h-96 w-auto rounded-3xl" src="https://drive.google.com/uc?id=1ZMH0BpMRWrKA-S3vVFwe5aU0iMuCpEat"></div></div>
+     <div class="h-auto w-auto relative bg-slate-900 text-slate-400 p-8 pt-20 flex justify-start"><div class=" flex"><img class="h-96 w-auto rounded-3xl" src="https://drive.google.com/uc?id=1Ey030o0kvAUYMjQnjXW-DjA7e19yKejJ"><p class="text-center ml-36 font-div font-semibold text-3xl">Communtiy help</p></div></div>
+     <div class="h-auto w-auto relative bg-slate-900 text-slate-400 p-8 pt-20 flex justify-end"><div class=" flex"><p class="mr-52 font-div font-semibold text-3xl">Over all analysis</p><img class="h-96 w-auto rounded-3xl" src="https://drive.google.com/uc?id=1-rHNwjzbea79EQBu9KYaY2wf6-NYmSb7"></div></div>
+  </div>
+      <div id="quickie" class="h-auto w-auto ml-12 mt-10 mr-12">
+       <iframe class=" w-full aspect-video rounded-2xl h-96 hover:aspect-square" src="{{asmr_link}}"></iframe> 
+      </div>
+      <div id="divisions" class="bg-gr h-auto w-auto rounded-xl ml-12 mt-10 mr-12 p-10 transition ease-out delay-150 hover:-translate-y-2 hover:scale-105 ...">
+          <div class="grid grid-cols-3 gap-10 m-5 ">
+          <div class="h-auto w-auto text-xl tracking-wide font-div font-bold bg-slate-900 text-white p-5 rounded-lg"><h1 class="font-bold bg-white text-black text-xl mb-3 rounded-lg w-auto p-3 text-center">Mental health difficulties</h1><img class="rounded-full mt-10 mb-5" src="https://drive.google.com/uc?id=1r_xT4eYOYhKJHpuRhm9xv371Y-Cv7s-z"><p class="pt-6">Mental illness, also called mental health disorders, refers to a wide range of mental health conditions — disorders that affect your mood, thinking and behavior. Examples of mental illness include depression, anxiety disorders, schizophrenia, eating disorders and addictive behaviors</p></div>
+          <div class="h-auto w-auto text-xl  tracking-wide font-div font-bold bg-slate-900 text-white p-5 rounded-lg"><h1 class="font-bold bg-white text-black text-xl mb-3 rounded-lg w-auto p-3 text-center">Supporting Ourselves</h1><img class="rounded-full h-64 ml-5 mt-10 mb-5" src="https://drive.google.com/uc?id=1kkibFVl-QPQdP6g3-lMBZ-000iWcwh09"><p class="pt-6"> Taking good care of yourself is paramount to the success of your recovery process. People in recovery find that their physical, spiritual, and emotional health are all connected, and that supporting one supports the others. Taking care of all aspects of you will increase the likelihood that you stay well.</p></div>
+          <div class="h-auto w-auto text-xl  tracking-wider font-div font-bold bg-slate-900 text-white p-5 rounded-lg"><h1 class="font-bold bg-white text-black text-xl mb-3 rounded-lg w-auto p-3 text-center">Supporting Someone Else</h1><img class="rounded-full h-64 mt-10 mb-5" src="https://drive.google.com/uc?id=1FIR5opRIufUUri6hJOmcCZDF2XfX7S8l"><p class="pt-6">Mental health problems can be complex. There are many individual differences in the symptoms and how each person responds to different treatment options. However, as with a physical illness, a person with a mental health condition will benefit from the right treatment and support. Having someone to lean on while working through this experience can reduce stress and help them on the road to recovery.</p></div>
+        </div>
+      </div>
+      <div class="bg-gr h-auto w-auto rounded-xl flex justify-center ml-12 mt-10 mr-12 p-10 transition ease-out delay-150 hover:-translate-y-2 hover:scale-105 ...">
+        <div class="grid grid-cols-2 gap-10 m-5 ">
+          <div class="h-auto w-auto text-xl font-div font-bold bg-black text-white p-5 rounded-lg"><a href="{{url_for('venting')}}">venting</a></div>
+          <div class="h-auto w-auto text-lg font-div font-bold bg-black text-white p-5 rounded-lg"><a href="{{url_for('bot')}}"> check your problems</a></div>
+        </div>
+      </div>
+      <div id="outsourcing" class="bg-gr h-auto w-auto rounded-xl ml-12 mt-10 mr-12 p-10 transition ease-out delay-150 hover:-translate-y-2 hover:scale-105 ...">
+         <h1 class="text-center h-auto w-auto rounded-lg p-3 text-2xl font-semibold bg-black text-white">Outsourcing Medical Services</h1>
+         <div class="grid grid-cols-3 gap-10 m-5 ">
+          <div class="h-auto w-auto text-xl font-div font-bold bg-black text-white p-5 rounded-lg"><h1 class="font-bold bg-white text-black text-xl mb-3 rounded-lg w-auto p-3 text-center">Psychologists</h1><img class="rounded-full mt-10 mb-10" src="https://drive.google.com/uc?id=1DeWXJ_Xcaehg57BKT9LLWx3-nuZrqgor"><button class="h-auto w-auto ml-24 p-2 bg-white text-black rounded-lg">book now</button></div>
+          <div class="h-auto w-auto text-lg font-div font-bold bg-black text-white p-5 rounded-lg"><h1 class="font-bold bg-white text-black text-xl mb-3 rounded-lg w-auto p-3 text-center">Psychatrist</h1><img class="rounded-full mt-10 mb-14 w-72 ml-5" src="https://drive.google.com/uc?id=1gXRrCawofQAZqzDhV7zCeK5n1XkZzj_V"><button class="h-auto ml-24 w-auto p-2 bg-white text-black rounded-lg">book now</button></div>
+          <div class="h-auto w-auto text-lg font-div font-bold bg-black text-white p-5 rounded-lg"><h1 class="font-bold bg-white text-black text-xl mb-3 rounded-lg w-auto p-3 text-center">Therapist</h1><img class="rounded-full mt-12 h-64 ml-3 w-72 mb-16" src="https://drive.google.com/uc?id=1N355AVpRlMQNirLQfEz41MPMwXrMlrmg"><button class="h-auto ml-24 w-auto p-2 bg-white text-black rounded-lg">book now</button></div>
+        </div>
+      </div>
+      <div id="overview" class="bg-gr h-auto w-auto rounded-xl ml-12 mt-10 mr-12 mb-10 p-10 transition ease-out delay-150 hover:-translate-y-2 hover:scale-105 ...">
+          <h1 class="text-center h-auto w-auto rounded-lg p-3 text-2xl font-semibold bg-black text-white">common mental health difficulties</h1>
+        <div class="grid grid-cols-3 gap-10 m-5 font-bold ">
+        
+          <div class="h-auto w-auto bg-slate-900 text-white p-5 rounded-lg"><h1 class="text-lg text-center text-white">Problems faced by women</h1><br><img class="rounded-full h-36 ml-24 mb-7 w-36" src="https://drive.google.com/uc?id=16kLq1GUW1N3-zHFHqNoOMEkW_cE9I8Oz"><h1 class="text-semibold  text-center">Age : 0-15</h1>
+            <ul class="text-lg text-center mt-6">
+            <li>Generalised Anxiety</li>
+            <li>Social phobias</li>
+            <li>Depression</li>
+            </ul>
+          </div>
+          <div class="h-auto w-auto bg-black text-white p-5 rounded-lg"><h1 class="text-lg text-center text-white">Problems faced by women</h1><br><img class="rounded-full h-36 ml-24 mb-7 w-36" src="https://drive.google.com/uc?id=1RYIKItwju0DTA9lZedMMIUMnF9GXuEhX"><h1 class="text-semibold text-center">Age : 15-50</h1>
+          <ul class="text-lg text-center mt-6"> 
+            <li>Past mistakes</li>
+            <li>Worrying about children futures</li>
+            <li>Financial problems</li>
+            </ul>
+          </div>
+          <div class="h-auto w-auto bg-black text-white p-5 rounded-lg"><h1 class="text-lg text-center text-white">Problems faced by women</h1><br><img class="rounded-full h-36 ml-24 mb-7 w-36" src="https://drive.google.com/uc?id=1I15gz6roCtgdMYOZAWHbNG6IkISvdTuV"><h1 class="text-semibold text-center">Age : 50+</h1>
+            <ul class="text-lg text-center mt-6">
+              <li>Loneliness</li>
+              <li>Anxiety</li>
+              <li>Depression</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Available Cities</title>
+    <link href="./../static/css/output.css" rel="stylesheet">
+
+</head>
+<body class="bg-yellow-200"> 
+<input type="text" id="city_search" class="appearance-none bg-transparent text-black m-5 h-10 w-52 text-lg font-div font-bold bg-slate-300 p-5" placeholder="Enter a city name">
+<ul id="city_list"></ul>
+<div id="list_doc">
+
+</div>
+
+    <script>
+    var indian_cities = ["Mumbai","Panvel","Coimbatore", "Delhi", "Bangalore", "Hyderabad", "Ahmedabad", "Chennai", "Kolkata", "Surat", "Pune", "Jaipur", "Lucknow", "Kanpur", "Nagpur", "Visakhapatnam", "Bhopal", "Patna", "Ludhiana", "Agra", "Nashik", "Vadodara"];
+    doctors = ['General practitioners', 'Pediatricians', 'Surgeons', 'Dermatologists', 'Cardiologists', 'Neurologists', 'Psychiatrists', 'Ophthalmologists', 'Gynecologists', 'Orthopedic surgeons', 'Oncologists', 'Endocrinologists', 'Gastroenterologists', 'Pulmonologists', 'Urologists']
+    $(document).ready(function() {
+        $('#city_search').on('input', function() {
+            var search_query = $(this).val().toLowerCase();
+            var search_results = '';
+            if (search_query !== '') {
+                for (var i = 0; i < indian_cities.length; i++) {
+                    if (indian_cities[i].toLowerCase().indexOf(search_query) !== -1) {
+                        search_results += '<button onclick="show_doctors(\''+indian_cities[i]+'\')">'+indian_cities[i]+'</button>' + '<br>';
+                    }
+                }
+            }
+        $('#city_list').html(search_results);
+        });
+      
+    });
+    function show_doctors(city){
+        var city = city;
+        document.getElementById('list_doc').innerHTML = "";
+        document.getElementById('city_list').innerHTML = "";
+        document.getElementById('city_search').innerHTML = "";
+        $.ajax({
+                url: '/get_city_doc',
+                data: {city: city},
+                method: 'POST',
+                success: function (response) {
+
+                    for (var i = 0; i < response.length; i += 9) {
+                        console.log(response[i])
+                        var set = '<div class="backdrop-blur-md backdrop-brightness-200 bg-white/30 p-3 font-div ml-10 mr-20 rounded-lg shadow-lg shadow-slate-500 font-bold text-lg" id="' + response[i] + '"><br><p><label>Name</label>:' + response[i + 1] + '</p><br><p>specialization:' + response[i + 2] + '</p><br><p>Address:' + response[i + 5] + '</p><br><p>City:' + response[i + 4] + '</p><br><p>Year Of Experience:' + response[i + 3] + '</p></div> <hr><br>'
+                        $("#list_doc").append(set);
+                    }
+                }
+            }
+
+        )}
+    </script>
+</body>
+</html>

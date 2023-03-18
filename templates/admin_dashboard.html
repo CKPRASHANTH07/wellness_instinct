@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./../static/css/output.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Admin dashboard</title>
+</head>
+<body class = "bg-gradient-to-br from-pink-300 to-purple-300 scroll-smooth">
+    <div class = "fixed w-full z-30 flex bg-gr p-2 items-center font-body justify-center h-16 px-10">
+        <div class = "logo ml-12 transform ease-in-out duration-500 flex-none h-full flex items-center justify-center">
+            <h1>{{ "Welcome " ~ account.Name | upper ~ "!" }}</h1>
+        </div>
+        <div class = "grow h-full flex items-center justify-center"></div>
+        <div class = "flex-none h-full text-center flex items-center justify-center">
+            <div class = "flex space-x-3 items-center px-3">
+                <div class = "flex-none flex justify-center">
+                    <a href="{{url_for('logout')}}">LOGOUT</a>
+                    <div class="w-8 h-8 flex ">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
+                    </div>
+                    
+                </div>
+                <div class = "hidden md:block text-sm md:text-md text-black">{{account.Name}}</div>
+                </div>
+                
+        </div>
+    </div>
+    <aside class = "w-60 -translate-x-48 fixed transition transform ease-in-out duration-1000 z-50 flex h-screen">
+        <!-- open sidebar button -->
+        <div class = "max-toolbar pl-12 translate-x-24 scale-x-0 w-full -right-6 transition transform ease-in duration-300 flex items-center justify-between border-2 bg-white border-slate-900 absolute top-2 rounded-full h-12  text-black">
+             navigate  
+             </div>
+             <!--nav bar icon-->
+            <div onclick="openNav()" class = "right-0 transition transform ease-in-out duration-10 flex border-2 border-yellow-300 bg-violet-700 hover:bg-purple-500 absolute top-[10px] p-3 rounded-full text-black hover:rotate-45">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" class="w-4 h-4">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+                </svg>
+        </div>
+        <!-- MAX SIDEBAR-->
+        <div class= "max hidden text-white mt-20 ml-4 flex-col space-y-2 w-40 h-[calc(100vh)]">
+            <div class =  "hover:ml-4 w-full text-slate-900 hover:text-purple-500 bg-gr p-2 pl-8 rounded-full transform ease-in-out duration-300 flex flex-row items-center space-x-3">
+                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>  
+                <div>
+                    Home
+                </div>
+            </div>
+            <div class =  "hover:ml-4 w-full text-slate-900 hover:text-purple-500 bg-gr p-2 pl-8 rounded-full transform ease-in-out duration-300 flex flex-row items-center space-x-3">
+                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 256V160H224v96H64zm0 64H224v96H64V320zm224 96V320H448v96H288zM448 256H288V160H448v96zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64z"/></svg>                   
+                <div>
+                    Table
+                </div>
+            </div>
+            <div class =  "hover:ml-4 w-full text-slate-900 hover:text-purple-500 bg-gr p-2 pl-8 rounded-full transform ease-in-out duration-300 flex flex-row items-center space-x-3">
+                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M302 240V16.6c0-9 7-16.6 16-16.6C441.7 0 542 100.3 542 224c0 9-7.6 16-16.6 16H302zM30 272C30 150.7 120.1 50.3 237 34.3c9.2-1.3 17 6.1 17 15.4V288L410.5 444.5c6.7 6.7 6.2 17.7-1.5 23.1C369.8 495.6 321.8 512 270 512C137.5 512 30 404.6 30 272zm526.4 16c9.3 0 16.6 7.8 15.4 17c-7.7 55.9-34.6 105.6-73.9 142.3c-6 5.6-15.4 5.2-21.2-.7L318 288H556.4z"/></svg>                     
+                <div>
+                    Graph
+                </div>
+            </div>
+            <div class =  "hover:ml-4 w-full text-slate-900 hover:text-purple-500 bg-gr p-2 pl-8 rounded-full transform ease-in-out duration-300 flex flex-row items-center space-x-3">
+                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 256V160H224v96H64zm0 64H224v96H64V320zm224 96V320H448v96H288zM448 256H288V160H448v96zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64z"/></svg>                   
+                <div>
+                    Notifications
+                </div>
+            </div>
+        </div>
+        <div class= "mini mt-20 flex flex-col space-y-2 w-full h-[calc(100vh)]">
+            <div class= "hover:ml-4 justify-end pr-5 text-white hover:text-purple-500 w-full bg-gr p-3 rounded-full transform ease-in-out duration-300 flex">
+                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>                  
+            </div>
+            <div class= "hover:ml-4 justify-end pr-5 text-white hover:text-purple-500 w-full bg-gr p-3 rounded-full transform ease-in-out duration-300 flex">
+                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 256V160H224v96H64zm0 64H224v96H64V320zm224 96V320H448v96H288zM448 256H288V160H448v96zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64z"/></svg>            
+            </div>
+            <div class= "hover:ml-4 justify-end pr-5 text-white hover:text-slate-900 dark:hover:text-blue-500 w-full bg-gr p-3 rounded-full transform ease-in-out duration-300 flex">
+                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M302 240V16.6c0-9 7-16.6 16-16.6C441.7 0 542 100.3 542 224c0 9-7.6 16-16.6 16H302zM30 272C30 150.7 120.1 50.3 237 34.3c9.2-1.3 17 6.1 17 15.4V288L410.5 444.5c6.7 6.7 6.2 17.7-1.5 23.1C369.8 495.6 321.8 512 270 512C137.5 512 30 404.6 30 272zm526.4 16c9.3 0 16.6 7.8 15.4 17c-7.7 55.9-34.6 105.6-73.9 142.3c-6 5.6-15.4 5.2-21.2-.7L318 288H556.4z"/></svg>       
+            </div>
+            <div class= "hover:ml-4 justify-end pr-5 text-white hover:text-slate-900 dark:hover:text-blue-500 w-full bg-gr p-3 rounded-full transform ease-in-out duration-300 flex">
+                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M302 240V16.6c0-9 7-16.6 16-16.6C441.7 0 542 100.3 542 224c0 9-7.6 16-16.6 16H302zM30 272C30 150.7 120.1 50.3 237 34.3c9.2-1.3 17 6.1 17 15.4V288L410.5 444.5c6.7 6.7 6.2 17.7-1.5 23.1C369.8 495.6 321.8 512 270 512C137.5 512 30 404.6 30 272zm526.4 16c9.3 0 16.6 7.8 15.4 17c-7.7 55.9-34.6 105.6-73.9 142.3c-6 5.6-15.4 5.2-21.2-.7L318 288H556.4z"/></svg>       
+            </div>
+        </div>
+        
+    </aside>
+    <!-- CONTENT -->
+    <div class = "content ml-12 transform ease-in-out duration-500 pt-20 px-2 md:px-5 pb-4 ">
+        <nav class = "flex px-5 py-3 text-gray-700  rounded-lg bg-gray-50" aria-label="Breadcrumb">
+            <ol class = "inline-flex items-center space-x-1 md:space-x-3">
+                <li class = "inline-flex items-center">
+                    <a href="#" class = "inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900">
+                        <svg class = "w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <div class = "flex items-center">
+                        <svg class = "w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"></path></svg>
+                        <a href="#" class = "ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white">Templates</a>
+                    </div>
+                </li>
+            </ol>
+        </nav>
+
+
+        <div class="">
+
+            <div class = "flex flex-wrap my-5 -mx-2">
+                <div class = "w-full lg:w-1/3 p-2">
+                    <div class = "flex items-center flex-row w-full bg-gr rounded-md p-3">
+                        <div class = "flex text-indigo-500 items-center bg-white p-2 rounded-md flex-none w-8 h-8 md:w-12 md:h-12 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" class = "object-scale-down transition duration-500">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+                            </svg>
+                        </div>
+                        <div class = "flex flex-col flex-grow ml-5 text-gray-700">
+                            <div class = "text-md font-bold whitespace-nowrap">
+                                Total User
+                            </div>
+                            <div class = "">
+                                {{users_count}}
+                            </div>
+                        </div>
+                        <div class = " flex items-center flex-none text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" class = "w-6 h-6">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                            </svg>
+    
+                        </div>
+                    </div>
+                </div>
+    
+                <div class = "w-full md:w-1/2 lg:w-1/3 p-2">
+                    <div class = "flex items-center flex-row w-full bg-gr rounded-md p-3">
+                        <div class = "flex text-indigo-500 dark:text-white items-center bg-white dark:bg-[#0F172A] p-2 rounded-md flex-none w-8 h-8 md:w-12 md:h-12 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M335.5 4l288 160c15.4 8.6 21 28.1 12.4 43.5s-28.1 21-43.5 12.4L320 68.6 47.5 220c-15.4 8.6-34.9 3-43.5-12.4s-3-34.9 12.4-43.5L304.5 4c9.7-5.4 21.4-5.4 31.1 0zM320 160a40 40 0 1 1 0 80 40 40 0 1 1 0-80zM144 256a40 40 0 1 1 0 80 40 40 0 1 1 0-80zm312 40a40 40 0 1 1 80 0 40 40 0 1 1 -80 0zM226.9 491.4L200 441.5V480c0 17.7-14.3 32-32 32H120c-17.7 0-32-14.3-32-32V441.5L61.1 491.4c-6.3 11.7-20.8 16-32.5 9.8s-16-20.8-9.8-32.5l37.9-70.3c15.3-28.5 45.1-46.3 77.5-46.3h19.5c16.3 0 31.9 4.5 45.4 12.6l33.6-62.3c15.3-28.5 45.1-46.3 77.5-46.3h19.5c32.4 0 62.1 17.8 77.5 46.3l33.6 62.3c13.5-8.1 29.1-12.6 45.4-12.6h19.5c32.4 0 62.1 17.8 77.5 46.3l37.9 70.3c6.3 11.7 1.9 26.2-9.8 32.5s-26.2 1.9-32.5-9.8L552 441.5V480c0 17.7-14.3 32-32 32H472c-17.7 0-32-14.3-32-32V441.5l-26.9 49.9c-6.3 11.7-20.8 16-32.5 9.8s-16-20.8-9.8-32.5l36.3-67.5c-1.7-1.7-3.2-3.6-4.3-5.8L376 345.5V400c0 17.7-14.3 32-32 32H296c-17.7 0-32-14.3-32-32V345.5l-26.9 49.9c-1.2 2.2-2.6 4.1-4.3 5.8l36.3 67.5c6.3 11.7 1.9 26.2-9.8 32.5s-26.2 1.9-32.5-9.8z"/></svg>
+                        </div>
+                        <div class = "flex flex-col justify-around flex-grow ml-5 text-slate-700">
+                            <div class = "text-md font-semibold whitespace-nowrap">
+                                Total Visitor
+                            </div>
+                            <div class = "">
+                                {{counts}}
+                            </div>
+                        </div>
+                        <div class = " flex items-center flex-none text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" class = "w-6 h-6">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                            </svg>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="h-auto rounded-xl shadow-xl mb-10 p-5 w-96 bg-gr">
+           <h1 class="text-xl text-center font-semibold">send announcements</h1>
+           <form method="post"> 
+            <label>enter the message</label><br>
+           <input class="mb-5" type="text" id="announcement" name="notification" >
+            <div class="bg-lime-500 mt-3 p-3 w-44 rounded-lg">
+                <button onclick="send_annoncement()">Send Announcement</button>
+            </div>
+           </form>
+        </div>
+        <div class = "p-4 mb-4 text-sm text-blue-700 bg-blue-100 rounded-lg dark:bg-blue-200 dark:text-blue-800" role="alert">
+            <span class = "font-medium">Info alert!</span> Change a few things up and try submitting again.
+        </div>
+        <div class = "p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+            <span class = "font-medium">Danger alert!</span> Change a few things up and try submitting again.
+        </div>
+        <div class = "p-4 mb-52 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+            <span class = "font-medium">Success alert!</span> Change a few things up and try submitting again.
+        </div>
+    </div>
+    <script>
+        const sidebar = document.querySelector("aside");
+        const maxSidebar = document.querySelector(".max")
+        const miniSidebar = document.querySelector(".mini")
+        const roundout = document.querySelector(".roundout")
+        const maxToolbar = document.querySelector(".max-toolbar")
+        const logo = document.querySelector('.logo')
+        const content = document.querySelector('.content')
+        const moon = document.querySelector(".moon")
+        const sun = document.querySelector(".sun")
+
+        function openNav() {
+            if(sidebar.classList.contains('-translate-x-48')){
+                // max sidebar 
+                sidebar.classList.remove("-translate-x-48")
+                sidebar.classList.add("translate-x-none")
+                maxSidebar.classList.remove("hidden")
+                maxSidebar.classList.add("flex")
+                miniSidebar.classList.remove("flex")
+                miniSidebar.classList.add("hidden")
+                maxToolbar.classList.add("translate-x-0")
+                maxToolbar.classList.remove("translate-x-24","scale-x-0")
+                logo.classList.remove("ml-12")
+                content.classList.remove("ml-12")
+                content.classList.add("ml-12","md:ml-60")
+            }else{
+                // mini sidebar
+                sidebar.classList.add("-translate-x-48")
+                sidebar.classList.remove("translate-x-none")
+                maxSidebar.classList.add("hidden")
+                maxSidebar.classList.remove("flex")
+                miniSidebar.classList.add("flex")
+                miniSidebar.classList.remove("hidden")
+                maxToolbar.classList.add("translate-x-24","scale-x-0")
+                maxToolbar.classList.remove("translate-x-0")
+                logo.classList.add('ml-12')
+                content.classList.remove("ml-12","md:ml-60")
+                content.classList.add("ml-12")
+
+            }
+
+        }
+
+
+       function send_annoncement(){
+        console.log("Mail function start222222222");
+        var content = $('#announcement').val();
+        console.log("Mail function start")
+        $.ajax({
+                url: '/mail_to_subscribers',
+                data: {data:content},
+                type: 'POST'
+            });
+       } 
+
+
+    </script>
+</body>
+</html>

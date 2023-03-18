@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Add</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            margin-top: 190px;
+            border: 2px solid #ccc;
+            padding: 20px;
+            max-width: 500px;
+            width: 100%;
+        }
+        input[type=text], input[type=tel], input[type=file] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        input[type=email]{
+            box-sizing: border-box;
+            width: 190%;
+            padding: 12px 20px;
+        }
+        input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            overflow: hidden;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .active {
+            background-color: #373b52;
+        }
+        nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  overflow: hidden;
+  text-align: center;
+}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" class="active">Home</a>
+        <a href="#">Login</a>
+        <a href="#">Appointment</a>
+    </nav>
+    <form method="post" enctype="multipart/form-data">
+        <h1>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAdd Doctors Details</h1>
+        <input type="text" name="doc_name" placeholder="Doctor Name" required><br><br>
+        <input type="text" name="doc_clinic" placeholder="Doctor Clinic" required> <br><br>
+        <input type="text" name="doc_fee" placeholder="Doctor Fees" required> <br><br>
+        <input type="text" name="doc_specialist" placeholder="Doctor Specialist" required> <br><br>
+        <input type="text" name="doc_experience" placeholder="Doctr Experience" required> <br><br>
+        <input type="text" name="doc_city" placeholder="Doctor City" required> <br><br>
+        <input type="text" name="doc_address" placeholder="Doctor Address" required> <br><br>
+        <input type="tel" name="doc_phone" placeholder="Doctor Phone" required> <br><br>
+        <input type="emial" name="doc_email" placeholder="Doctor Email"> <br><br>
+        <input type="file" name="img_file" placeholder="file"  required > <br><br>
+        <input type="submit">
+    </form>
+</body>
+</html>

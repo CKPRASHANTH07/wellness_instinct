@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Chats</title>
+    <link href="../static/css/output.css" rel="stylesheet">
+    <script>
+        function chat_send(){
+            var message = $('#message_box').val();
+            if(message !== "" && message !== null){
+                document.getElementById("message_box").value = "";
+                console.log("Stored");
+                $.ajax({
+                    url : '/chat_upload',
+                    data : {message:message},
+                    type : 'Post'
+                })
+            } else{
+                alert('The message box is empty')
+            }
+        }
+    </script>
+
+</head>
+<body class="bg-no-repeat bg-cover h-max" style="background-image : url('https://drive.google.com/uc?id=1JqxocGFsan0AJTxBuDB9Kexh_vDyw-eq')">
+   <div class="flex justify-center">
+    <div class="h-20 mt-12 backdrop-blur-sm backdrop-brightness-95 bg-white/30 w-fit flex justify-center rounded-lg">
+        <h1 class="font-extrabold text-5xl font-div relative text-center p-5 text-slate-900">Venting Area</h1>
+    </div>
+</div>
+    <div class="backdrop-blur-sm backdrop-brightness-95 bg-white/30 h-auto w-auto mt-14 ml-20 mb-10 rounded-lg p-5 pb-1 mr-20">
+        {% for i in chats %}
+        {% if i.sender == session['name'] %}
+         <div class="bg-transparent text-white flex justify-end p-1"><h1 class="font-div">{{i.message}}</h1></div>
+        {% else %}
+        <div class="bg-gray-700 text-white flex justify-start p-1"><h1 class="font-div"> {{i.message}}</h1></div>
+        {% endif %}
+        {% endfor %}
+  <div class="flex justify-end h-auto w-auto m-2">
+      <div class="h-auto w-auto p-1 rounded-md bg-transparent">
+        <input class="rounded-md appearance-none text-2xl border-orange-600 bg-gray-700 h-10 font-div font-bold" type="text" name="message" id="message_box" >
+      </div>
+        <button class="bg-black font-div font-bold text-white p-3 rounded-lg" onclick="chat_send()">send</button>
+       <hr>
+    </div>
+    </div>
+</body>
+</html>

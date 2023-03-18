@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Chat Bot</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <link href="./../static/css/output.css" rel="stylesheet">
+    <style>
+      body{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+      }
+      <!--#box{
+        width: 450px;
+        height: 590px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        /* border: 1px solid #303030; */
+        box-shadow: 5px 5px 20px #000;
+        border-radius: 20px;
+      }
+          -->
+      .top{
+        width: 100%;
+        height: 80px;
+        background: #2a2f32;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+      }
+      .top h1{
+        color: #fff;
+        margin: 0;
+        font-size: 30px;
+        text-align: center;
+        /* padding-left: 20px; */
+        padding-top: 10px;
+        font-family: monospace;
+      }
+      .mid .chat{
+        width: 100%;
+        /* padding-top: 0px; */
+      /* <--.input{
+           {#width: 100%;#}
+           {#height: 79px;#}
+           {#overflow: hidden;#}
+           {#/* background: #090e11; */} */
+       
+      .mid .chat h2{
+        margin: 0;
+        font-size: 26px;
+        color: #000;
+        padding: 30px 20px;
+      }
+      /* {#<!--.input input{#}
+      {#  width: 100%;#}
+      {#  height: 70px;#}
+      {#  font-size: 30px;#}
+      {#  outline: none;#}
+      {#  border: none;#}
+      {#  padding-left: 30px;#}
+      {#  padding-top: 0;#}
+      {#  font-family: cursive;#}
+      {#  background:red;#}
+      {#  color: #fff;#}
+      {#}#}
+          --> */
+</style>
+      </head>
+  <body class="bg-yellow-200">
+  <div class="backdrop-blur-md backdrop-brightness-95 bg-white/30 h-auto w-auto m-20 rounded-xl overflow-hidden">
+      <div class="bg-gradient-to-r from-slate-300 to-slate-500 text-center p-5 text-xl font-bold font-div">
+        <h1>Symptoms Finder</h1>
+      </div>
+      <div class="mid">
+        <div class="chat">
+            <p id="chatLog" class="bg-transparent font-div font-bold text-lg p-2 overflow-hidden  h-auto w-96"></p>
+        </div>
+      </div>
+      <div class="flex mt-96 justify-start place-content-end">
+      <div class="bg-transparent h-auto w-auto">
+        <input class="bg-white font-div font-bold text-lg p-5 ml-5 border-2 rounded-md border-black h-10 w-96" type="text" id="userBox" onkeydown="if(event.keyCode == 13){ talk()}" placeholder="Type your Question">
+      </div>
+  </div>
+    </div>
+
+
+
+    <script>function talk(){
+      var comment = $('#userBox').val();
+      $.ajax({
+        url: '/chat_response',
+        type:'POST',
+        data : {comment:comment},
+        success: function(response){
+          document.getElementById('chatLog').innerHTML = response.reply_status + "<br>"; 
+        }
+      })
+      
+        
+      
+    }</script>
+  </body>
+</html>

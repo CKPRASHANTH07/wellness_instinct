@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./../static/css/output.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+
+    <script>
+    function generate_otp_email(){
+        var email = $('#email').val();
+        $.ajax({
+                url: '/generate_otp_email',
+                data: {data:email},
+                type: 'POST',
+                success:function(response){
+                    var generated_otp = response.otp
+                    if (generated_otp === 1) {
+                    alert("Wrong Email");
+                    }
+                    else{
+                        var popup = response.msg
+                        popup.classList.toggle("show");
+                        $('#email').prop('disabled', true);
+                    }
+                },
+                error: function(error){
+			 	    console.log(error);
+                    alert("The entered Email is Incorrect");
+			    }
+            });
+    }
+</script>
+    
+</head>
+<body class="bg-gradient-to-br from-pink-300 to-purple-300">
+    <div class="pb-44">
+        <div class="flex rounded-lg mt-28 mx-auto max-w-sm lg:max-w-4xl">
+              <div class="hidden lg:block lg:w-1/2 bg-cover rounded-xl" style="background-image:url('https://thumbs.dreamstime.com/z/women-s-community-female-solidarity-international-women-s-day-concept-there-women-different-races-different-ages-206513344.jpg')"></div>
+              <div class="w-full ml-10 p-8 lg:w-1/2">
+                <h1 class="text-3xl font-bold text-slate-700 mb-10 font-body text-center tracking-widest"> Join the Community today ! </h1>
+                <form method="post">  
+                <div class="mt-4">
+                    
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Username</label>
+                    <input name="username" class="bg-gray-200 text-gray-700 focus:outline-none focus:border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="text">
+                </div>
+                  <div class="mt-4">
+                    {{msg}}
+                      <label class="block text-gray-700 text-sm font-bold mb-2">Email Address</label>
+                      <input name="email_address" class="bg-gray-200 text-gray-700 focus:outline-none focus:border border-gray-300 rounded py-2 px-4 block w-full appearance-none" id="email" type="email">
+                  </div>
+                  <div class="mt-4">
+                    
+                    <label class="block text-gray-700 text-sm font-bold mb-2">date of birth</label>
+                    <input name="dob" class="bg-gray-200 text-gray-700 focus:outline-none focus:border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="date">
+                </div>
+                <div class="mt-4">
+                    
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Phone Number</label>
+                    <input name="phone" class="bg-gray-200 text-gray-700 focus:outline-none focus:border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="text">
+                </div>
+                  <div class="mt-4">
+                      <div class="flex justify-between">
+                          <label class="block text-gray-700 text-sm font-bold mb-2">Password</label>
+                                   
+                      </div>
+                      <input name="password" class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="password">
+                  </div>
+                  <br>
+                  <div id="verify_otp_block" class="mt-4" >
+                    <div class="flex justify-between">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Enter OTP</label>
+                        
+                    </div>
+                    <input name="otp" class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="number">
+                </div>
+
+                  <div class="mt-8">
+                      <button class="bg-gray-700 font-body tracking-widest text-white font-bold py-2 px-4 w-full rounded transition ease-out delay-150 hover:-translate-y-2 hover:scale-105 ...">let me in &rarr;</button>
+                  </div>
+                  <div class="mt-4 flex items-center justify-between">
+                      <span class="border-b w-1/5 md:w-1/4"></span>
+                      <a href="{{url_for('login')}}" class="text-xs text-gray-500 uppercase">or login</a>
+                      <span class="border-b w-1/5 md:w-1/4"></span>
+                  </div>
+                </form>
+                <button onclick="generate_otp_email()">Verify Email</button>
+              </div>
+          </div>
+      </div>
+</body>
+
+</html>
